@@ -13,5 +13,8 @@
 ### DEMO
 [http://demo.laji.blog/AirBooking "http://demo.laji.blog/AirBooking")
 
+### BLOG
+[https://laji.blog/archives/code/javascript/2018/04/16/343.html "https://laji.blog/archives/code/javascript/2018/04/16/343.html")
+
 ### GITHUB
 [https://github.com/maizhenying09/AirBooking](https://github.com/maizhenying09/AirBooking "https://github.com/maizhenying09/AirBooking")
