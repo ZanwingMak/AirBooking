@@ -1,4 +1,4 @@
-#### 移动WEB，飞机票订票、航班查询首页。
+#### 机票预订|航班查询 - 首页
 ![](https://o7y8mvdbc.qnssl.com/tc/uploads/1804/160348517605.png)
 
 ### USE
