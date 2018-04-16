@@ -1,0 +1,56 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+body,div,dl,dt,dd,ul,li,form,input,button,h1,h2,h3,h4,h5,h6,p{margin: 0;padding:0;font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;color:#333333}
+ul,li,dl,dt,dd{/*display:block;*/list-style:none;}
+a{text-decoration:none!important;outline:none;cursor: pointer;color: #333;}
+input{background:none;outline:none;border:0px;cursor:pointer;!important;user-select: auto;!important;}
+/*p{position: relative; line-height: 20px; max-height: 40px;overflow: hidden;}*/
+/*p::after{content: "..."; position: absolute; bottom: 0; right: 0; padding-left: 40px;*/
+    /*background: -webkit-linear-gradient(left, transparent, #fff 55%);*/
+    /*background: -o-linear-gradient(right, transparent, #fff 55%);*/
+    /*background: -moz-linear-gradient(right, transparent, #fff 55%);*/
+    /*background: linear-gradient(to right, transparent, #fff 55%);*/
+/*}*/
+
+body{
+    padding-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+    padding-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+}
+
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.weui-toast{
+    z-index: 2500;
+}
+.weui-dialog, .weui-toast{
+    z-index: 2500;
+}
+.weui-mask, .weui-mask_transparent{
+    z-index: 2334;
+}
+
+select,date,time {
+    /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+    border: none;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*背景色*/
+    background:transparent;
+    /*加padding防止文字覆盖*/
+    padding-right: 14px;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }

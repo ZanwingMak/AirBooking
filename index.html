@@ -1,0 +1,2218 @@
+<!--我就是辞职，放弃写代码，也绝对不会去用jQuery的！jQuery真好用。-->
+<!--好吧，代码是真的辣鸡。-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/flexible_css.js,flexible_v0.41.min.js"></script>
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui-noHtmlFontsizeImportant.min.css">
+    <link rel="stylesheet" href="./css/pages/common.css">
+    <link rel="stylesheet" href="./css/pages/index/index.css">
+    <link rel="stylesheet" href="./css/pages/index/country.css">
+    <link rel="stylesheet" href="./css/pages/index/jquery.bigautocomplete.css">
+    <link rel="stylesheet" href="./css/pages/index/calendar.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="./css/accordion.css">
+    <title>飞机订票</title>
+</head>
+<body>
+<div class="index_tab weui-tab">
+    <div class="weui-navbar">
+        <a class="weui-navbar__item weui-bar__item--on" data-navtype="2" href="#re">
+            <span>往返</span>
+        </a>
+        <a class="weui-navbar__item" href="#oneWay"  data-navtype="1">
+            <span>单程</span>
+        </a>
+        <a class="weui-navbar__item" href="#multiPass"  data-navtype="3">
+            <span>多城市</span>
+        </a>
+    </div>
+    <div class="weui-tab__bd">
+        <div id="re" data-ftype="2" class="f_tab weui-tab__bd-item weui-tab__bd-item--active">
+            <div class="container">
+                <div class="addr">
+                    <div class="addr1 addrClick">
+                        <div class="val"></div>
+                        <input class="tVal" hidden>
+                    </div>
+                    <a class="icon_switch" href="javascript:;"></a>
+                    <div class="addr2 addrClick">
+                        <div class="val"></div>
+                        <input class="tVal" hidden>
+                    </div>
+                </div>
+                <div class="date">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item">
+                            <span class="tips_g">去程</span>
+                            <a class="weui-cell weui-cell_access dateClick tl" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <p class="dateVal"><span class="_date"></span><span class="_week"></span></p>
+                                </div>
+                            </a>
+                            <input class="tDateVal" hidden value="">
+                        </div>
+                        <div class="placeholder"></div>
+                        <div class="weui-flex__item">
+                            <span class="tips_b">返程</span>
+                            <a class="weui-cell weui-cell_access dateClick tr" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <p class="dateVal"><span class="_date"></span><span class="_week"></span></p>
+                                </div>
+                            </a>
+                            <input class="tDateVal" hidden value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="oneWay" data-ftype="1" class="f_tab weui-tab__bd-item">
+            <div class="container">
+                <div class="addr">
+                    <div class="addr1 addrClick">
+                        <div class="val"></div>
+                        <input class="tVal" hidden>
+                    </div>
+                    <a class="icon_switch" href="javascript:;"></a>
+                    <div class="addr2 addrClick">
+                        <div class="val"></div>
+                        <input class="tVal" hidden>
+                    </div>
+                </div>
+                <div class="date">
+                    <a class="weui-cell weui-cell_access dateClick tl" href="javascript:;">
+                        <div class="weui-cell__bd">
+                            <p class="dateVal"><span class="_date"></span><span class="_week"></span></p>
+                        </div>
+                    </a>
+                    <input class="tDateVal" hidden value="">
+                </div>
+            </div>
+        </div>
+        <div id="multiPass" data-ftype="3" class="f_tab weui-tab__bd-item">
+            <div class="container">
+                <ul class="pList">
+                    <li class="pItem">
+                        <div class="lineTitle">第1程</div>
+                        <div class="addr">
+                            <div class="addr1 addrClick">
+                                <div class="val"></div>
+                                <input class="tVal" hidden>
+                            </div>
+                            <a class="icon_switch" href="javascript:;"></a>
+                            <div class="addr2 addrClick">
+                                <div class="val"></div>
+                                <input class="tVal" hidden>
+                            </div>
+                        </div>
+                        <div class="date">
+                            <a class="weui-cell weui-cell_access dateClick tl" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <p class="dateVal"><span class="_date"></span><span class="_week"></span></p>
+                                </div>
+                            </a>
+                            <input class="tDateVal" hidden value="">
+                        </div>
+                    </li>
+                    <div class="splitters"></div>
+                    <li class="pItem">
+                        <div class="lineTitle">第2程</div>
+                        <div class="addr">
+                            <div class="addr1 addrClick">
+                                <div class="val"></div>
+                                <input class="tVal" hidden>
+                            </div>
+                            <a class="icon_switch" href="javascript:;"></a>
+                            <div class="addr2 addrClick">
+                                <div class="val"></div>
+                                <input class="tVal" hidden>
+                            </div>
+                        </div>
+                        <div class="date">
+                            <a class="weui-cell weui-cell_access dateClick tl" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <p class="dateVal"><span class="_date"></span><span class="_week"></span></p>
+                                </div>
+                            </a>
+                            <input class="tDateVal" hidden value="">
+                        </div>
+                    </li>
+                    <div class="splitters"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="commonEdit">
+    <div class="people weui_accordion_box">
+        <div class="weui-flex weui_accordion_title">
+            <div class="weui-flex__item adult">
+                <div class="weui-flex">
+                    <div class="weui-flex__item left">
+                        <p class="title">成人</p>
+                        <p class="explain">&gt;12岁</p>
+                    </div>
+                    <div class="weui-flex__item right">
+                        <p class="num">1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-flex__item child">
+                <div class="weui-flex">
+                    <div class="left">
+                        <p class="title">儿童</p>
+                        <p class="explain">2-11岁</p>
+                    </div>
+                    <div class="weui-flex__item right">
+                        <p class="num">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-flex__item baby">
+                <div class="weui-flex">
+                    <div class="weui-flex__item left">
+                        <p class="title">婴儿</p>
+                        <p class="explain">1-2岁</p>
+                    </div>
+                    <div class="weui-flex__item right">
+                        <p class="num">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="peopleEdit weui-cells weui_accordion_content">
+            <dd class="weui-cell pType" data-ptype="adult">
+                <div class="weui-cell__bd">
+                    <p>成人(&gt;12岁)</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-count">
+                        <a class="weui-count__btn weui-count__decrease"></a>
+                        <input class="weui-count__number" type="number" value="1" readonly />
+                        <a class="weui-count__btn weui-count__increase"></a>
+                    </div>
+                </div>
+            </dd>
+            <dd class="weui-cell pType" data-ptype="child">
+                <div class="weui-cell__bd">
+                    <p>儿童(2-12岁)</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-count">
+                        <a class="weui-count__btn weui-count__decrease"></a>
+                        <input class="weui-count__number" type="number" value="0" readonly />
+                        <a class="weui-count__btn weui-count__increase"></a>
+                    </div>
+                </div>
+            </dd>
+            <dd class="weui-cell pType" data-ptype="baby">
+                <div class="weui-cell__bd">
+                    <p>婴儿(0-2岁)</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-count">
+                        <a class="weui-count__btn weui-count__decrease"></a>
+                        <input class="weui-count__number" type="number" value="0" readonly />
+                        <a class="weui-count__btn weui-count__increase"></a>
+                    </div>
+                </div>
+            </dd>
+        </div>
+    </div>
+    <input class="code" placeholder="促销代码" maxlength="30">
+</div>
+<a class="btnSearch" href="javascript:void(0);">查询航班</a>
+<div class="searchHistory">
+    <p class="title">最近查询(最近5条)</p>
+    <ul class="hisList">
+    </ul>
+    <a class="clearSearchHistory"><i class="icon_clear"></i><span>清除记录</span></a>
+</div>
+</body>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/jquery-weui-plus.min.js"></script>
+<script src="./js/web-storage-cache.min.js"></script>
+<script src="./js/fastclick.min.js"></script>
+<script src="./js/q.js"></script>
+<script src="./js/accordion.js"></script>
+<script src="./js/jquery.histroy.js"></script>
+<script src="./js/pinyinjs/dict/pinyin_dict_firstletter.js"></script>
+<script src="./js/pinyinjs/pinyinUtil.js"></script>
+<script src="./js/pages/index/jquery.bigautocomplete.js"></script>
+<script src="./js/pages/index/calendar.js"></script>
+<script src="./js/sticky-kit.min.js"></script>
+<script src="./js/pages/index/index.js"></script>
+<script src="./js/mock-min.js"></script>
+<script src="./js/vconsole.min.js"></script>
+<script>
+
+    /*参数*/
+
+    //路由
+    Q.reg([
+      ['home',function(){
+        console.log('打开了首页');
+        removeAddrSelect();
+        removeDateSelect();
+      }],
+      ['address',function(){
+        console.log('打开了地址选择页');
+      }],
+      ['calendar',function(){
+        console.log('打开了日期选择页');
+      }]
+    ]);
+
+    //控制台调试
+    //var vConsole = new VConsole();
+    //Mock.js模拟随机数据
+    Mock.mock(
+      "http://mockjs",{
+        "code": 0
+      }
+    );
+    //根据定位api，后台返回附近的机场，此处模拟数据
+    Mock.mock(
+        "http://location",{
+            "code": 0,
+            "city|1":[
+                {'name':'广州','code':'CAN'},
+                {'name':'海口','code':'HAK'},
+                {'name':'南宁','code':'NNG'},
+                {'name':'深圳','code':'SZX'},
+                {'name':'天津','code':'TSN'},
+                {'name':'西安','code':'XIY'},
+                {'name':'杭州','code':'HGH'},
+                {'name':'沈阳','code':'SHE'},
+                {'name':'大连','code':'DLC'}
+            ]
+        }
+    );
+    //浏览器UA
+    var u = navigator.userAgent;
+    //移动端
+    var isMobile = u.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) ? true : false;
+    //android终端
+    var isAndroid = u.match(/(android)/i) ? true : false;
+    //是否在微博浏览器打开
+    var isWeibo = u.match(/(weibo)/i) ? true : false;
+    //是否在微信浏览器打开
+    var isWechat = u.match(/(micromessenger)/i) ? true : false;
+    //ios终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    //ios版本
+    var iosVersion = isiOS?u.toLowerCase().match(/cpu iphone os (.*?) like mac os/i)[1].replace(/_/g,"."):false;
+    //页面标题
+    var domTitle = document.title;
+    //是否首次访问页面
+    var isFirstOpen = false;
+    //定位地址
+    var locationAddr = null;
+    //定位地址加载完毕
+    var locationAddrLoaded = false;
+    //定位地址定时器
+    var locationAddrInterval = null;
+    //乘客限制数
+    var MAX = 20, MIN = 0;
+    //当前填入的地址
+    var currentAddrFillIn = {};
+    //当前填入的日期
+    var currentDateFillIn = {};
+    //航线JSON
+    var AirBookingJSON = null;
+    //航线JSON加载完毕
+    var AirBookingJSONloaded = false;
+    //航线JSON定时器
+    var AirBookingJSONinterval = null;
+    //日历JSON
+    var calendarJSON = null;
+    //日历JSON加载完毕
+    var calendarJSONloaded = false;
+    //日历JSON定时器
+    var calendarJSONinterval = null;
+    //所有国家或地区
+    var allCountry = [];
+    //城市选择，1：按国家或地区排列 2：按首字母排列(弃了)
+    var citySelectMode = 1;
+    //支持浏览器本地数据库
+    var isSupportWScache = true;
+    //浏览器本地数据库
+    var wsCache = new WebStorageCache({
+        // [可选] 'localStorage', 'sessionStorage', window.localStorage, window.sessionStorage
+        //        或者其他实现了 [Storage API] 的storage实例.
+        //        默认 'localStorage'.
+        storage: 'localStorage',
+        // [可选]  类型Number，公共超时事件设置。默认无限大
+        exp: Infinity
+    });
+    //国际热门城市
+    var hot_international = [
+        {'name':'新加坡','code':'SIN'},
+        {'name':'曼谷','code':'BKK'},
+        {'name':'普吉','code':'HKT'},
+        {'name':'甲米','code':'KBV'},
+        {'name':'吉隆坡','code':'KUL'},
+        {'name':'槟城','code':'PEN'},
+        {'name':'马尔代夫','code':'MLE'},
+        {'name':'巴厘岛','code':'DPS'},
+        {'name':'雅加达','code':'CGK'},
+        {'name':'悉尼','code':'SYD'},
+        {'name':'墨尔本','code':'MEL'},
+        {'name':'珀斯','code':'PER'}
+    ];
+    //国内热门城市
+    var hot_domestic = [
+        {'name':'广州','code':'CAN'},
+        {'name':'杭州','code':'HGH'},
+        {'name':'南京','code':'NKG'},
+        {'name':'天津','code':'TSN'},
+        {'name':'青岛','code':'TAO'},
+        {'name':'沈阳','code':'SHE'},
+        {'name':'大连','code':'DLC'},
+        {'name':'哈尔滨','code':'HRB'},
+        {'name':'深圳','code':'SZX'},
+        {'name':'西安','code':'XIY'},
+        {'name':'济南','code':'TNA'},
+        {'name':'郑州','code':'CGO'},
+        {'name':'无锡','code':'WUX'},
+        {'name':'南宁','code':'NNG'},
+        {'name':'宁波','code':'NGB'},
+        {'name':'泉州','code':'JJN'},
+        {'name':'海口','code':'HAK'},
+        {'name':'重庆','code':'CKG'},
+        {'name':'香港特别行政区','code':'HKG'},
+        {'name':'澳门特别行政区','code':'MFM'},
+    ];
+
+    //隐藏目的地
+    var hideAir = ['CJM','TST','UNN','ROI','NST','MAQ','KOP','NNT','PRH','PHS','CEI','USM','URT','UTH','UBP','BFV'];
+
+    //随机国内城市(用户拒绝获取位置、获取失败)
+    var randomCity = [
+      {'name':'广州','code':'CAN'},
+      {'name':'海口','code':'HAK'},
+      {'name':'南宁','code':'NNG'},
+      {'name':'深圳','code':'SZX'},
+      {'name':'天津','code':'TSN'},
+      {'name':'西安','code':'XIY'},
+      {'name':'杭州','code':'HGH'},
+      {'name':'沈阳','code':'SHE'},
+      {'name':'大连','code':'DLC'}
+    ];
+
+    /*事件*/
+
+    $(function(){
+        //获取航班JSON
+        getKuhangJSON();
+        //获取日历JSON
+        getCalendarJSON();
+        //FastClick解决ios点击事件300毫秒的问题
+        FastClick.attach(document.body);
+        //animate.css函数
+        $.fn.extend({
+            animateCss: function (animationName, callback) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function() {
+                    $(this).removeClass('animated ' + animationName);
+                    if (callback) {
+                        callback();
+                    }
+                });
+                return this;
+            }
+        });
+        /* 启动函数 */
+        Q.init({
+            key:'!',/* url里#和url名之间的分割符号 默认为感叹号 */
+            index:'home',/* 首页地址 如果访问到不能访问页面也会跳回此页 */
+            pop:function(L,arg){/* 每次有url变更时都会触发pop回调 */
+              console.log('pop 当前参数是:',arguments);
+            }
+        });
+        //切换到首页
+        Q.go('home');
+        //从浏览器获取历史记录
+        if(wsCache.isSupported()){
+            isSupportWScache = true;
+            wsCache.deleteAllExpires();
+            //操作记录
+            var AirBookingHistoryVal = '';
+            AirBookingHistoryVal = wsCache.get('AirBookingHistoryVal');
+            //console.log(AirBookingHistoryVal);
+            if(AirBookingHistoryVal){
+              if(GetQueryString('dpcity')!=''||GetQueryString('dpcity_zh')!=''||GetQueryString('arcity')!=''||GetQueryString('arcity_zh')!=''||GetQueryString('dpdate')!=''||GetQueryString('type')!=''){
+                  showUrlDefaultVal();
+              }else{
+                  //显示上次的值
+                  showData(AirBookingHistoryVal);
+              }
+            }else{
+                //首次访问
+                isFirstOpen = true;
+                if(GetQueryString('dpcity')!=''||GetQueryString('dpcity_zh')!=''||GetQueryString('arcity')!=''||GetQueryString('arcity_zh')!=''||GetQueryString('dpdate')!=''||GetQueryString('type')!=''){
+                    showUrlDefaultVal();
+                }else{
+                    //获取定位
+                    getLocation();
+                }
+                //加载首次访问的自动填充数据
+                if(locationAddrLoaded){
+                    showData(buildFirstData());
+                }else{
+                    locationAddrInterval = setInterval(function(){
+                        if(locationAddrLoaded == true){
+                            $.hideLoading();
+                            clearInterval(locationAddrInterval);
+                            showData(buildFirstData());
+                        }
+                    },300);
+                }
+            }
+
+            //搜索记录
+            var AirBookingSearchHistory = '';
+            AirBookingSearchHistory = wsCache.get('AirBookingSearchHistory');
+            //console.log(AirBookingSearchHistory);
+            if(AirBookingSearchHistory){
+                createSearchHistoryList(AirBookingSearchHistory);
+            }
+
+        }else{
+            isSupportWScache = false;
+            $.alert('该浏览器不支持本地存储功能，请更换其它浏览器或升级到最新版本。');
+        }
+        //点击查询航班
+        $('.btnSearch').on('click',function(){
+            var curTabType = $('.f_tab.weui-tab__bd-item.weui-tab__bd-item--active').data('ftype');
+            //console.log(typeof(curTabType));
+            var AirBookingSearchHistory = wsCache.get('AirBookingSearchHistory');
+            if(!AirBookingSearchHistory){
+                AirBookingSearchHistory = [];
+            }
+            var allData = getAllData();
+            var searchData = {};
+            console.log(allData);
+            //判断当前tab，清空其它tab特有的数据，让createSearchHistoryList()显示数据和生成列表html
+            switch(curTabType){
+                case 1:
+                    if(allData.types[0].addrs[0].tVal == ''){
+                        $.alert('请选择出发地');
+                        return false;
+                    }else if(allData.types[0].addrs[1].tVal == ''){
+                        $.alert('请选择目的地');
+                        return false;
+                    }else if(allData.types[0].dates[0].tVal == ''){
+                        $.alert('请选择出发时间');
+                        return false;
+                    }
+                    allData.types[1].dates[1].sVal = '';
+                    allData.types[1].dates[1].tVal = '';
+                    allData.types[2].lines[1].addrs[1].sVal = '';
+                    allData.types[2].lines[1].addrs[1].tVal = '';
+                    allData.types[2].lines[1].dates[0].sVal = '';
+                    allData.types[2].lines[1].dates[0].tVal = '';
+
+                    searchData = {
+                        type: 1,
+                        data: allData.types[0]
+                    };
+
+                    break;
+                case 2:
+                    if(allData.types[1].addrs[0].tVal == ''){
+                        $.alert('请选择出发地');
+                        return false;
+                    }else if(allData.types[1].addrs[1].tVal == ''){
+                        $.alert('请选择目的地');
+                        return false;
+                    }else if(allData.types[1].dates[0].tVal == ''){
+                        $.alert('请选择出发时间');
+                        return false;
+                    }else if(allData.types[1].dates[1].tVal == ''){
+                        $.alert('请选择返程时间');
+                        return false;
+                    }
+                    allData.types[2].lines[1].addrs[1].sVal = '';
+                    allData.types[2].lines[1].addrs[1].tVal = '';
+                    allData.types[2].lines[1].dates[0].sVal = '';
+                    allData.types[2].lines[1].dates[0].tVal = '';
+
+                    searchData = {
+                        type: 2,
+                        data: allData.types[1]
+                    };
+
+                    break;
+                case 3:
+                    if(allData.types[2].lines[0].addrs[0].tVal == ''){
+                        $.alert('请选择第1程的出发地');
+                        return false;
+                    }else if(allData.types[2].lines[0].addrs[1].tVal == ''){
+                        $.alert('请选择第1程的目的地');
+                        return false;
+                    }else if(allData.types[2].lines[0].dates[0].tVal == ''){
+                        $.alert('请选择第1程的出发时间');
+                        return false;
+                    }else if(allData.types[2].lines[1].addrs[0].tVal == ''){
+                        $.alert('请选择第2程的出发地');
+                        return false;
+                    }else if(allData.types[2].lines[1].addrs[1].tVal == ''){
+                        $.alert('请选择第2程的目的地');
+                        return false;
+                    }else if(allData.types[2].lines[1].dates[0].tVal == ''){
+                        $.alert('请选择第2程的出发时间');
+                        return false;
+                    }
+
+                    searchData = {
+                        type: 3,
+                        data: allData.types[2]
+                    };
+
+                    break;
+                default:
+                    $.alert('发生未知错误，点击确定刷新页面。',function(){
+                        location.reload();
+                    });
+                    return false;
+                    break;
+            }
+
+            if(JSON.stringify(allData) != JSON.stringify(AirBookingSearchHistory[0])){
+                if(AirBookingSearchHistory.length >= 5){
+                    AirBookingSearchHistory.pop();//删除最后一个元素
+                }
+                AirBookingSearchHistory.unshift(allData);
+                wsCache.set('AirBookingSearchHistory',AirBookingSearchHistory);
+
+                AirBookingSearchHistory = wsCache.get('AirBookingSearchHistory');
+                //console.log(AirBookingSearchHistory);
+                if(AirBookingSearchHistory){
+                    createSearchHistoryList(AirBookingSearchHistory);
+                }
+                saveAllDataJSONtoCache();
+            }
+
+            searchData.people = getPeopleTypeAndCount();
+            searchData.promo = $('.commonEdit .code').val().trim();
+
+            console.log(searchData);
+            var postData = {};
+            if(searchData.type == '1'){
+                postData = {
+                    'type': 1,
+                    'dpcity': searchData.data.addrs[0].tVal,
+                    'arcity': searchData.data.addrs[1].tVal,
+                    'dpdate': searchData.data.dates[0].tVal,
+                    'adt': searchData.people.adult,
+                    'chd': searchData.people.child,
+                    'inft': searchData.people.baby,
+                    'promo': searchData.promo,
+                }
+                //$.alert('你选择的出行类型是：单程<br/>出发地：'+searchData.data.addrs[0].sVal+'<br/>目的地：'+searchData.data.addrs[1].sVal+'<br/>时间：'+searchData.data.dates[0].sVal+'<br/>乘客：成人'+searchData.people.adult+'位、儿童'+searchData.people.child+'位、婴儿'+searchData.people.baby+'位','确认信息(测试)');
+            }else if(searchData.type == '2'){
+                postData = {
+                    'type': 2,
+                    'dpcity': searchData.data.addrs[0].tVal,
+                    'arcity': searchData.data.addrs[1].tVal,
+                    'dpdate': searchData.data.dates[0].tVal,
+                    'ardate': searchData.data.dates[1].tVal,
+                    'adt': searchData.people.adult,
+                    'chd': searchData.people.child,
+                    'inft': searchData.people.baby,
+                    'promo': searchData.promo,
+                }
+                //$.alert('你选择的出行类型是：往返<br/>去程：'+searchData.data.addrs[0].sVal+'<br/>返程：'+searchData.data.addrs[1].sVal+'<br/>时间：'+searchData.data.dates[0].sVal+'-'+searchData.data.dates[1].sVal+'<br/>乘客：成人'+searchData.people.adult+'位、儿童'+searchData.people.child+'位、婴儿'+searchData.people.baby+'位','确认信息(测试)');
+            }else if(searchData.type == '3'){
+                postData = {
+                    'type': 3,
+                    'dpcity': searchData.data.lines[0].addrs[0].tVal,
+                    'arcity': searchData.data.lines[0].addrs[1].tVal,
+                    'thcity': searchData.data.lines[1].addrs[1].tVal,
+                    'dpdate': searchData.data.lines[0].dates[0].tVal,
+                    'ardate': searchData.data.lines[1].dates[0].tVal,
+                    'adt': searchData.people.adult,
+                    'chd': searchData.people.child,
+                    'inft': searchData.people.baby,
+                    'promo': searchData.promo,
+                }
+                //$.alert('你选择的出行类型是：多城市<br/>【第一程】<br/>出发地：'+searchData.data.lines[0].addrs[0].sVal+'<br/>目的地：'+searchData.data.lines[0].addrs[1].sVal+'<br/>时间：'+searchData.data.lines[0].dates[0].sVal+'<br/>【第二程】<br/>出发地：'+searchData.data.lines[1].addrs[0].sVal+'<br/>目的地：'+searchData.data.lines[1].addrs[1].sVal+'<br/>时间：'+searchData.data.lines[1].dates[0].sVal+'<br/>乘客：成人'+searchData.people.adult+'位、儿童'+searchData.people.child+'位、婴儿'+searchData.people.baby+'位','确认信息(测试)');
+            }
+                console.log(postData);
+                $.ajax({
+                    url: 'http://mockjs',
+                    type: 'post',
+                    dataType: 'json',
+                    data: postData,
+                    beforeSend:function(){
+                        $.showLoading('正在查询');
+                    }
+                })
+                    .done(function(res){
+                        if(res.code === 0){
+                            $.alert('test ok');
+                            //location.href = './search.html';
+                        }else{
+                            $.alert('网络错误，请稍后再试。');
+                        }
+                    })
+                    .fail(function(){
+                        $.alert('网络不给力，请尝试刷新页面。',function(){
+                            location.reload();
+                        })
+                    }).
+                always(function(){
+                    $.hideLoading();
+                });
+        });
+        //点击清除历史
+        $('.clearSearchHistory').on('click',function(){
+            $('.searchHistory').hide();
+            $('.searchHistory .hisList .hisItem').remove();
+            wsCache.set('AirBookingSearchHistory',[]);
+        });
+        //点击历史记录
+        $('body').on('click','.searchHistory .hisList .hisItem',function(){
+            if(wsCache.isSupported()){
+                isSupportWScache = true;
+                var index = $(this).index();
+                var AirBookingSearchHistory = '';
+                AirBookingSearchHistory = wsCache.get('AirBookingSearchHistory');
+                //console.log(index);
+                //console.log(AirBookingSearchHistory);
+                if(AirBookingSearchHistory){
+                    showData(AirBookingSearchHistory[index]);
+                }
+            }else{
+                isSupportWScache = false;
+            }
+        });
+        //点击选择目的地
+        $('body').on('click', '.addrClick', function () {
+            var _this = $(this);
+            if(AirBookingJSONloaded){
+                loadAddrSelect(_this);
+            }else{
+                $.showLoading('正在加载');
+                AirBookingJSONinterval = setInterval(function(){
+                    if(AirBookingJSONloaded){
+                        $.hideLoading();
+                        clearInterval(AirBookingJSONinterval);
+                        loadAddrSelect(_this);
+                    }
+                },300);
+            }
+        });
+        //点击开始选择日期
+        $('body').on('click', '.dateClick', function () {
+            var _this = $(this);
+            if(calendarJSONloaded){
+                loadDateSelect(_this);
+            }else{
+                $.showLoading('正在加载');
+                calendarJSONinterval = setInterval(function(){
+                    if(calendarJSONloaded){
+                        $.hideLoading();
+                        clearInterval(calendarJSONinterval);
+                        loadDateSelect(_this);
+                    }
+                },300);
+            }
+        });
+        //切换出发地和目的地
+        $('.icon_switch').on('click',function(){
+            var _this = $(this);
+            var ftype = _this.closest('.f_tab').eq(0).data('ftype');
+
+            var l_s = '';
+            var l_t = '';
+            var r_s = '';
+            var r_t = '';
+
+            var curLine = '';
+            if(ftype == '3'){
+                curLine = $('.pList .pItem').index(_this.closest('.pItem'));
+                //console.log(curLine);
+                l_s = $('.f_tab[data-ftype='+ftype+'] .addr1 .val').eq(curLine).text();
+                l_t = $('.f_tab[data-ftype='+ftype+'] .addr1 .tVal').eq(curLine).val();
+                r_s = $('.f_tab[data-ftype='+ftype+'] .addr2 .val').eq(curLine).text();
+                r_t = $('.f_tab[data-ftype='+ftype+'] .addr2 .tVal').eq(curLine).val();
+
+            }else{
+                l_s = $('.f_tab[data-ftype='+ftype+'] .addr1 .val').text();
+                l_t = $('.f_tab[data-ftype='+ftype+'] .addr1 .tVal').val();
+                r_s = $('.f_tab[data-ftype='+ftype+'] .addr2 .val').text();
+                r_t = $('.f_tab[data-ftype='+ftype+'] .addr2 .tVal').val();
+            }
+
+            if(ftype == '3' && curLine == '1'){
+                $.alert('多城市第2程暂时无法切换','提示',function(){
+
+                });
+                return false;
+                //$('.f_tab[data-ftype=3] .addr1 .val').eq(1).text(r_s);
+                //$('.f_tab[data-ftype=3] .addr1 .tVal').eq(1).val(r_t);
+                //$('.f_tab[data-ftype=3] .addr2 .val').eq(1).text(l_s);
+                //$('.f_tab[data-ftype=3] .addr2 .tVal').eq(1).val(l_t);
+            }else{
+                $('.f_tab[data-ftype=1] .addr1 .val').text(r_s);
+                $('.f_tab[data-ftype=1] .addr1 .tVal').val(r_t);
+                $('.f_tab[data-ftype=1] .addr2 .val').text(l_s);
+                $('.f_tab[data-ftype=1] .addr2 .tVal').val(l_t);
+
+                $('.f_tab[data-ftype=2] .addr1 .val').text(r_s);
+                $('.f_tab[data-ftype=2] .addr1 .tVal').val(r_t);
+                $('.f_tab[data-ftype=2] .addr2 .val').text(l_s);
+                $('.f_tab[data-ftype=2] .addr2 .tVal').val(l_t);
+
+                $('.f_tab[data-ftype=3] .addr1 .val').eq(0).text(r_s);
+                $('.f_tab[data-ftype=3] .addr1 .tVal').eq(0).val(r_t);
+                $('.f_tab[data-ftype=3] .addr2 .val').eq(0).text(l_s);
+                $('.f_tab[data-ftype=3] .addr2 .tVal').eq(0).val(l_t);
+                $('.f_tab[data-ftype=3] .addr1 .val').eq(1).text(l_s);
+                $('.f_tab[data-ftype=3] .addr1 .tVal').eq(1).val(l_t);
+                $('.f_tab[data-ftype=3] .addr2 .val').eq(1).text('');
+                $('.f_tab[data-ftype=3] .addr2 .tVal').eq(1).val('');
+            }
+            saveAllDataJSONtoCache();
+        });
+        //乘客数量选择(减号)
+        $('.weui-count__decrease').click(function (e) {
+            if(getPeopleCount() <= MIN){
+                return false;
+            }
+            var pType = $(e.target).closest('.pType').data('ptype');
+            if(pType == 'adult'){
+                if(parseInt($('.peopleEdit .pType[data-ptype=adult] .weui-count__number').val()) <= 1){
+                    $.alert('至少1名成人乘客');
+                    return false;
+                }else if(parseInt($('.peopleEdit .pType[data-ptype=baby] .weui-count__number').val()) >= parseInt($('.peopleEdit .pType[data-ptype=adult] .weui-count__number').val())){
+                    $.alert('婴儿的人数应该少于或等于成人人数');
+                    return false;
+                }
+            }else if(pType == 'baby'){
+                if(parseInt($('.peopleEdit .pType[data-ptype=baby] .weui-count__number').val()) > parseInt($('.peopleEdit .pType[data-ptype=adult] .weui-count__number').val())){
+                    $.alert('婴儿的人数应该少于或等于成人人数');
+                    return false;
+                }
+            }
+            var $input = $(e.currentTarget).parent().find('.weui-count__number');
+            var number = parseInt($input.val() || "0") - 1;
+            if (number < MIN) number = MIN;
+            $input.val(number);
+            $('.commonEdit .people .'+ pType +' .num').text(number);
+        });
+        //乘客数量选择(加号)
+        $('.weui-count__increase').click(function (e) {
+            if(getPeopleCount() >= MAX){
+                $.alert('最多选择20人');
+                return false;
+            }
+            var pType = $(e.target).closest('.pType').data('ptype');
+            if(pType == 'baby'){
+                if(parseInt($('.peopleEdit .pType[data-ptype=baby] .weui-count__number').val()) >= parseInt($('.peopleEdit .pType[data-ptype=adult] .weui-count__number').val())){
+                    $.alert('婴儿的人数应该少于或等于成人人数');
+                    return false;
+                }
+            }
+            var $input = $(e.currentTarget).parent().find('.weui-count__number');
+            var number = parseInt($input.val() || "0") + 1;
+            if (number > MAX) number = MAX;
+            $input.val(number);
+            $('.commonEdit .people .'+ pType +' .num').text(number);
+        });
+        //国家、地区标题点击展开菜单
+        $('body').on('click','.countryTitle',function(){
+
+        });
+        //国家、地区标题点击折叠菜单
+        $('body').on('click','.countryTitle.active',function(){
+            var countrylist = $(this).closest('.country-list');
+            if($(this).hasClass('active')){
+                var top = countrylist.offset().top - $('.nav').height() - parseFloat($('html').css('font-size'))*0.8;
+                $('body,html').stop().animate({scrollTop: top},500);
+            }
+        });
+        //展开效果
+        $('.weui_accordion_box').accordion({
+            animate: true, // 开启动画效果
+            duration: 300, // 动画时长
+            onChange: function(event) {
+                //console.log(event); // 'open' or 'close'
+            }
+        });
+    });
+
+    /*方法*/
+
+    //生成首次访问的自动填充数据
+    function buildFirstData(){
+        //console.log(locationAddr);
+        var firstData = {
+            types:[
+                {
+                    type:1,
+                    addrs: [
+                        {
+                            aName:'addr1',
+                            sVal:locationAddr.city,
+                            tVal:locationAddr.cityCode,
+                        },
+                        {
+                            aName:'addr2',
+                            sVal:'新加坡(SIN)',
+                            tVal:'SIN',
+                        },
+                    ],
+                    dates:[{
+                        dName:'date1',
+                        sVal:getSdate(getDateStr(1)),
+                        tVal:getDateStr(1)
+                    }]
+                },
+                {
+                    type:2,
+                    addrs:[
+                        {
+                            aName:'addr1',
+                            sVal:locationAddr.city,
+                            tVal:locationAddr.cityCode,
+                        },
+                        {
+                            aName:'addr2',
+                            sVal:'新加坡(SIN)',
+                            tVal:'SIN',
+                        }
+                    ],
+                    dates:[
+                        {
+                            dName:'date1',
+                            sVal:getSdate(getDateStr(1)),
+                            tVal:getDateStr(1)
+                        },
+                        {
+                            dName:'date2',
+                            sVal:getSdate(getDateStr(2)),
+                            tVal:getDateStr(2)
+                        }
+                    ]
+                },
+                {
+                    type:3,
+                    lines:[
+                        {
+                            line:'line1',
+                            addrs: [
+                                {
+                                    aName:'addr1',
+                                    sVal:locationAddr.city,
+                                    tVal:locationAddr.cityCode,
+                                },
+                                {
+                                    aName:'addr2',
+                                    sVal:'新加坡(SIN)',
+                                    tVal:'SIN',
+                                }
+                            ],
+                            dates:[{
+                                dName:'date1',
+                                sVal:getSdate(getDateStr(1)),
+                                tVal:getDateStr(1)
+                            }]
+                        },
+                        {
+                            line:'line2',
+                            addrs: [
+                                {
+                                    aName:'addr1',
+                                    sVal:'新加坡(SIN)',
+                                    tVal:'SIN',
+                                },
+                                {
+                                    aName:'addr2',
+                                    sVal:'',
+                                    tVal:'',
+                                }
+                            ],
+                            dates:[{
+                                dName:'date2',
+                                sVal:getSdate(getDateStr(2)),
+                                tVal:getDateStr(2)
+                            }]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        //console.log(firstData);
+
+        return firstData;
+    }
+    //显示数据
+    function showData(data){
+        //console.log(data);
+        for(var i=0;i<data.types.length;i++){
+            var item = data.types[i];
+            var type = item.type;
+            var today = getDateStr(0);
+            var isUpdatedDatesVal = false;
+
+            switch(type){
+                case 1:
+                    var addrArr = item.addrs;
+                    var dateArr = item.dates;
+
+                    $('.f_tab[data-ftype=1] .addr1 .val').text(addrArr[0].sVal);
+                    $('.f_tab[data-ftype=1] .addr1 .tVal').val(addrArr[0].tVal);
+                    $('.f_tab[data-ftype=1] .addr2 .val').text(addrArr[1].sVal);
+                    $('.f_tab[data-ftype=1] .addr2 .tVal').val(addrArr[1].tVal);
+
+                    var diff = getDateDiff(dateArr[0].tVal,today);
+                    if(diff > 0){//今天的日期超过历史记录所选日期
+                        isUpdatedDatesVal = true;
+                        var newDate = today;
+                        $('.f_tab[data-ftype=1] .date .dateVal ._date').text(getSdate(newDate));
+                        $('.f_tab[data-ftype=1] .date .dateVal ._week').text(getWeek(newDate));
+                        $('.f_tab[data-ftype=1] .date .tDateVal').val(newDate);
+                    }else{
+                        $('.f_tab[data-ftype=1] .date .dateVal ._date').text(dateArr[0].sVal);
+                        $('.f_tab[data-ftype=1] .date .dateVal ._week').text(getWeek(dateArr[0].tVal));
+                        $('.f_tab[data-ftype=1] .date .tDateVal').val(dateArr[0].tVal);
+                    }
+                    break;
+                case 2:
+                    var addrArr = item.addrs;
+                    var dateArr = item.dates;
+
+                    $('.f_tab[data-ftype=2] .addr1 .val').text(addrArr[0].sVal);
+                    $('.f_tab[data-ftype=2] .addr1 .tVal').val(addrArr[0].tVal);
+                    $('.f_tab[data-ftype=2] .addr2 .val').text(addrArr[1].sVal);
+                    $('.f_tab[data-ftype=2] .addr2 .tVal').val(addrArr[1].tVal);
+
+                    var diff = getDateDiff(dateArr[0].tVal,today);
+                    if(diff > 0){//今天的日期超过历史记录所选日期
+                        isUpdatedDatesVal = true;
+                        var newDate1 = today;
+                        var newDate2 = getDateStr(diff,dateArr[1].tVal);
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._date').eq(0).text(getSdate(newDate1));
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._week').eq(0).text(getWeek(newDate1));
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(newDate1);
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._date').eq(1).text(getSdate(newDate2));
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._week').eq(1).text(getWeek(newDate2));
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(newDate2);
+                    }else{
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._date').eq(0).text(dateArr[0].sVal);
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._week').eq(0).text(getWeek(dateArr[0].tVal));
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(dateArr[0].tVal);
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._date').eq(1).text(dateArr[1].sVal);
+                        $('.f_tab[data-ftype=2] .date  .dateVal ._week').eq(1).text(getWeek(dateArr[1].tVal));
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(dateArr[1].tVal);
+                    }
+                    break;
+                case 3:
+                    var diff = getDateDiff(item.lines[0].dates[0].tVal,today);
+                    for(var j=0;j<item.lines.length;j++){
+                        var line =item.lines[j];
+                        var addrArr = line.addrs;
+                        var dateArr = line.dates;
+
+                        $('.f_tab[data-ftype=3] .addr1 .val').eq(j).text(addrArr[0].sVal);
+                        $('.f_tab[data-ftype=3] .addr1 .tVal').eq(j).val(addrArr[0].tVal);
+                        $('.f_tab[data-ftype=3] .addr2 .val').eq(j).text(addrArr[1].sVal);
+                        $('.f_tab[data-ftype=3] .addr2 .tVal').eq(j).val(addrArr[1].tVal);
+
+                        if(diff > 0){//今天的日期超过历史记录所选日期
+                            isUpdatedDatesVal = true;
+                            var newDate = '';
+                            if(j===0){
+                                newDate = getDateStr(diff,today);
+                            }else if(j===1){
+                                newDate = getDateStr(diff,dateArr[0].tVal);
+                            }
+                            $('.f_tab[data-ftype=3] .date .dateVal ._date').eq(j).text(getSdate(newDate));
+                            $('.f_tab[data-ftype=3] .date .dateVal ._week').eq(j).text(getWeek(newDate));
+                            $('.f_tab[data-ftype=3] .date .tDateVal').eq(j).val(newDate);
+                        }else{
+                            $('.f_tab[data-ftype=3] .date .dateVal ._date').eq(j).text(dateArr[0].sVal);
+                            $('.f_tab[data-ftype=3] .date .dateVal ._week').eq(j).text(getWeek(dateArr[0].tVal));
+                            $('.f_tab[data-ftype=3] .date .tDateVal').eq(j).val(dateArr[0].tVal);
+                        }
+                    }
+                    break;
+            }
+        }
+
+        if(isUpdatedDatesVal){
+            $('.weui-toast.weui-toast--text.weui-toast--visible').remove();
+            $.toast("历史记录已过期,已为您重新分配日期", "text");
+            $('.weui-mask_transparent').remove();
+        }
+        saveAllDataJSONtoCache();
+    }
+    //创建历史搜索列表
+    function createSearchHistoryList(datas){
+        $('.searchHistory .hisList .hisItem').remove();
+        var listHtml = '';
+        for(var i=0;i<datas.length;i++){
+            var data = datas[i];
+            var types = data.types;
+            if(types[2].lines[1].dates[0].tVal != '' && types[2].lines[1].addrs[1].tVal != ''){//多城市,第二程不为空
+                //console.log('多程');
+                listHtml += '<li class="hisItem">'+ types[2].lines[0].addrs[0].sVal.split('(')[0] +'-'+ types[2].lines[0].addrs[1].sVal.split('(')[0] +' '+ types[2].lines[0].dates[0].sVal +'('+ getWeek(types[2].lines[0].dates[0].tVal) +') / '+ types[2].lines[1].addrs[0].sVal.split('(')[0] +'-'+ types[2].lines[1].addrs[1].sVal.split('(')[0] +' '+ types[2].lines[1].dates[0].sVal +'('+ getWeek(types[2].lines[1].dates[0].tVal) +')' +'</li>';
+            }else if(types[1].dates[1].tVal != '' && types[1].addrs[1].tVal != ''){
+                //console.log('往返');
+                listHtml += '<li class="hisItem">'+types[1].addrs[0].sVal.split('(')[0]+'-'+types[1].addrs[1].sVal.split('(')[0]+' '+types[1].dates[0].sVal+'('+ getWeek(types[1].dates[0].tVal)+')-'+types[1].dates[1].sVal+'('+ getWeek(types[1].dates[1].tVal)+')</li>';
+            }else{
+                //console.log('单程');
+                listHtml += '<li class="hisItem">'+types[0].addrs[0].sVal.split('(')[0]+'-'+types[0].addrs[1].sVal.split('(')[0]+' '+types[0].dates[0].sVal+'('+ getWeek(types[0].dates[0].tVal)+')</li>';
+            }
+        }
+        $('.searchHistory .hisList').append(listHtml);
+        if($('.searchHistory .hisList .hisItem').length > 0){
+            $('.searchHistory').show();
+        }
+    }
+    //创建地址选择
+    function createAddrSelect(){
+        //console.log(currentAddrFillIn);
+        //console.log(currentAddrFillIn.curAddr);
+        var hot = '';
+        if(currentAddrFillIn.ftype == 3){
+            if(currentAddrFillIn.curAddr[0] === 0){
+                if(currentAddrFillIn.curAddr[1] == 'addr1'){
+                    //出发地，显示中国+国际热门
+                    show = '1';
+                }else{
+                    //显示国际热门
+                    show = '2';
+                }
+            }else{
+                //目的地，显示国际热门
+                show = '2';
+            }
+        }else{
+            if(currentAddrFillIn.curAddr == 'addr1'){
+                //出发地，显示中国+国际热门
+                show = '1';
+            }else{
+                //目的地，显示国际热门
+                show = '2';
+            }
+        }
+        var hotCitySelectHtml = '<div class="hotCitySelect">';
+        if(show === '1'){
+            hotCitySelectHtml += '<div class="head"><span class="line"></span><p class="title">中国热门</p></div><ul class="hotCityList">';
+            $.each(hot_domestic,function(i,n){
+                hotCitySelectHtml += '<li class="hotCityItem" data-code="'+ n.code +'">'+ n.name +'</li>';
+            });
+            hotCitySelectHtml += '</ul>';
+            hotCitySelectHtml += '<div class="head"><span class="line"></span><p class="title">国际热门</p></div><ul class="hotCityList">';
+            $.each(hot_international,function(i,n){
+                hotCitySelectHtml += '<li class="hotCityItem" data-code="'+ n.code +'">'+ n.name +'</li>';
+            });
+            hotCitySelectHtml += '</ul></div>';
+        }else if(show === '2'){
+            hotCitySelectHtml += '<div class="head"><span class="line"></span><p class="title">国际热门</p></div><ul class="hotCityList">';
+            $.each(hot_international,function(i,n){
+                hotCitySelectHtml += '<li class="hotCityItem" data-code="'+ n.code +'">'+ n.name +'</li>';
+            });
+            hotCitySelectHtml += '</ul></div>';
+        }
+        var addrSelectHtml = '';
+        if(citySelectMode == 1){
+            addrSelectHtml = '<div class="countrySelect"><div class="nav"><input id="search" class="text" placeholder="搜索城市或国家"></div><div class=container>'+hotCitySelectHtml+'<div class="head"><span class="line"></span><p class="title">国家/地区</p></div><div class=country></div></div></div>';
+        }else if(citySelectMode == 2){
+            addrSelectHtml = '<div class="countrySelect"><div class="nav"><input id="search" class="text" placeholder="搜索城市或国家"></div><div id="showLetter" class="showLetter"><span></span></div><div class="letter"><ul><li><a href="javascript:;">A</a></li><li><a href="javascript:;">B</a></li><li><a href="javascript:;">C</a></li><li><a href="javascript:;">D</a></li><li><a href="javascript:;">E</a></li><li><a href="javascript:;">F</a></li><li><a href="javascript:;">G</a></li><li><a href="javascript:;">H</a></li><li><a href="javascript:;">I</a></li><li><a href="javascript:;">J</a></li><li><a href="javascript:;">K</a></li><li><a href="javascript:;">L</a></li><li><a href="javascript:;">M</a></li><li><a href="javascript:;">N</a></li><li><a href="javascript:;">O</a></li><li><a href="javascript:;">P</a></li><li><a href="javascript:;">Q</a></li><li><a href="javascript:;">R</a></li><li><a href="javascript:;">S</a></li><li><a href="javascript:;">T</a></li><li><a href="javascript:;">U</a></li><li><a href="javascript:;">V</a></li><li><a href="javascript:;">W</a></li><li><a href="javascript:;">X</a></li><li><a href="javascript:;">Y</a></li><li><a href="javascript:;">Z</a></li></ul></div><div class=container><div class=country><div class="country-list"><span class="country-letter"id="_A_">A</span></div><div class="country-list"><span class="country-letter"id="_B_">B</span></div><div class="country-list"><span class="country-letter"id="_C_">C</span></div><div class="country-list"><span class="country-letter"id="_D_">D</span></div><div class="country-list"><span class="country-letter"id="_E_">E</span></div><div class="country-list"><span class="country-letter"id="_F_">F</span></div><div class="country-list"><span class="country-letter"id="_G_">G</span></div><div class="country-list"><span class="country-letter"id="_H_">H</span></div><div class="country-list"><span class="country-letter"id="_I_">I</span></div><div class="country-list"><span class="country-letter"id="_J_">J</span></div><div class="country-list"><span class="country-letter"id="_K_">K</span></div><div class="country-list"><span class="country-letter"id="_L_">L</span></div><div class="country-list"><span class="country-letter"id="_M_">M</span></div><div class="country-list"><span class="country-letter"id="_N_">N</span></div><div class="country-list"><span class="country-letter"id="_O_">O</span></div><div class="country-list"><span class="country-letter"id="_P_">P</span></div><div class="country-list"><span class="country-letter"id="_Q_">Q</span></div><div class="country-list"><span class="country-letter"id="_R_">R</span></div><div class="country-list"><span class="country-letter"id="_S_">S</span></div><div class="country-list"><span class="country-letter"id="_T_">T</span></div><div class="country-list"><span class="country-letter"id="_U_">U</span></div><div class="country-list"><span class="country-letter"id="_V_">V</span></div><div class="country-list"><span class="country-letter"id="_W_">W</span></div><div class="country-list"><span class="country-letter"id="_X_">X</span></div><div class="country-list"><span class="country-letter"id="_Y_">Y</span></div><div class="country-list"><span class="country-letter"id="_Z_">Z</span></div></div></div></div>';
+        }
+        console.log(addrSelectHtml);
+        $('body').append(addrSelectHtml);
+        $('.countrySelect').animateCss('fadeInLeft');
+        $(".countrySelect .nav").stick_in_parent();
+        $('#search').focus(function(){
+            $('<div class="shadow"></div>').appendTo($('.countrySelect .container'));
+        });
+        $('#search').blur(function(){
+            $('.shadow').remove();
+        });
+        //加载城市事件
+        $('.container').show();
+        //点击选择城市
+        $('body').on('click', '.country-list li,.hotCityItem', function () {
+            //console.log($(this).attr('data-code'))
+            var _this = $(this);
+            //console.log(_this.attr('data-code'));
+            showAddrVal(_this.text(),_this.attr('data-code'));
+            Q.go('home');
+        });
+        //热门城市点击
+        $('body').on('click', '.countrySelect .hotCitySelect .hotCityItem', function () {
+            //console.log($(this).attr('data-code'))
+            var _this = $(this);
+            //console.log(_this.attr('data-code'));
+            showAddrVal(_this.text()+'('+_this.attr('data-code')+')',_this.attr('data-code'));
+            Q.go('home');
+        });
+        if(citySelectMode == 2){
+            //点击索引查询城市
+            $('body').on('click', '.letter a', function () {
+                var s = $(this).html();
+                $(window).scrollTop($('#_' + s + '_').offset().top);
+                $("#showLetter span").html(s);
+                $("#showLetter").show().delay(500).hide(0);
+            });
+            //中间的标记显示
+            $('body').on('onMouse', '.showLetter span', function () {
+                $("#showLetter").show().delay(500).hide(0);
+            });
+        }
+
+        var data = {};
+        var country = [];
+        var CountryArr = [];
+        if(currentAddrFillIn.ftype != '3'){
+            if(currentAddrFillIn.curAddr == 'addr1'){
+                var curCountry = '';
+                $.each(AirBookingJSON[0],function(i,n){
+                    //console.log(i,n);
+                    curCountry = n.country;
+                    CountryArr.push(n.country);
+                    $.each(n.markets,function(j,m){
+                        //console.log(m.origin);
+                        if(m.origin.is_scoot_market == true){
+                            country.push({"code":m.origin.station_code,"name":m.origin.station_name+'('+m.origin.station_code+')',"country":curCountry});
+                        }
+                    });
+                });
+            }else{
+                var code = $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addr1 .tVal').val();
+                //console.log(code);
+                var line = '';
+                var curCountry = '';
+                $.each(AirBookingJSON[0],function(i,n){
+                    $.each(n.markets,function(j,m){
+                        if(m.origin.is_scoot_market == true){
+                            if(m.origin.station_code == code){
+                                line = m.destinations;
+                                //console.log(line);
+                                $.each(line,function(k,o){
+                                    curCountry = o.country;
+                                    CountryArr.push(o.country);
+                                    //console.log(curCountry);
+                                    $.each(o.destinations,function(l,p){
+                                        if(p.is_scoot_market == true && $.inArray(p.station_code,hideAir)<0){
+                                            country.push({"code":p.station_code,"name":p.station_name+'('+p.station_code+')',"country":curCountry});
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+        }else if(currentAddrFillIn.ftype == '3'){
+            //console.log(currentAddrFillIn.curAddr);
+            if(currentAddrFillIn.curAddr[0] == '0' && currentAddrFillIn.curAddr[1] == 'addr1'){
+                var curCountry = '';
+                $.each(AirBookingJSON[0],function(i,n){
+                    //console.log(i,n);
+                    curCountry = n.country;
+                    CountryArr.push(n.country);
+                    $.each(n.markets,function(j,m){
+                        //console.log(m.origin);
+                        if(m.origin.is_scoot_market == true){
+                            country.push({"code":m.origin.station_code,"name":m.origin.station_name+'('+m.origin.station_code+')',"country":curCountry});
+                        }
+                    });
+                });
+            }else if(currentAddrFillIn.curAddr[1] == 'addr2'){
+                var curCountry = '';
+                var curAddr = $('.f_tab[data-ftype='+currentAddrFillIn.ftype+'] .pList .pItem').eq(currentAddrFillIn.curAddr[0]);
+                //console.log(curAddr);
+                var code = curAddr.find('.addr1 .tVal').val();
+                //console.log(code);
+                var line = '';
+                var JSON = '';
+                if(currentAddrFillIn.curAddr[0] == '0'){
+                    JSON = AirBookingJSON[0];
+                }else{
+                    JSON = AirBookingJSON[1];
+                }
+                $.each(JSON,function(i,n){
+                    $.each(n.markets,function(j,m){
+                        if(m.origin.is_scoot_market == true){
+                            if(m.origin.station_code == code){
+                                line = m.destinations;
+                                //console.log(line);
+                                $.each(line,function(k,o){
+                                    //console.log(o);
+                                    curCountry = o.country;
+                                    CountryArr.push(o.country);
+                                    $.each(o.destinations,function(l,p){
+                                        if(p.is_scoot_market == true && $.inArray(p.station_code,hideAir)<0){
+                                            country.push({"code":p.station_code,"name":p.station_name+'('+p.station_code+')',"country":curCountry});
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+        }
+        allCountry = CountryArr;
+        data.country = country;
+        for (var i = 0; i < data.country.length; i++) {
+            //console.log(data.country);
+            if(citySelectMode == 1){
+                var hasDom = $('.countrySelect .container .country .country-list[data-country="'+data.country[i].country +'"] .countryItems');
+                //console.log(hasDom);
+                if(hasDom.length){
+                    hasDom.append('<li data-code="'+ data.country[i].code +'">'+ data.country[i].name +'</li>');
+                    //console.log($('.countrySelect .container .country .country-list[data-country="'+data.country[i].country +'"] dl dd'));
+                    //$('.countrySelect .container .country .country-list[data-country="'+data.country[i].country +'"] details[open] + dl').css('max-height', $('.countrySelect .container .country .country-list[data-country="'+data.country[i].country +'"] dl dd').length * 1.1 +'rem');
+                }else{
+                    $('.countrySelect .container .country').append('<div class="country-list weui_accordion_box" data-country="'+ data.country[i].country +'"><div class="countryTitle weui_accordion_title"><span class="country-letter">' + data.country[i].country + '</span></div><ul class="countryItems weui_accordion_content"></ul></div>');
+                    $('.countrySelect .container .country .country-list[data-country="'+data.country[i].country +'"] .countryItems').append('<li data-code="'+ data.country[i].code +'">'+ data.country[i].name +'</li>');
+                }
+            }else if(citySelectMode == 2){
+                switchCase(data.country[i].name.slice(0,1), data.country[i].code, data.country[i].name);
+            }
+        }
+        $('.container .country .country-list .countryItems').parent().show();
+        $('.weui_accordion_box').accordion({
+            animate: true, // 开启动画效果
+            duration: 300, // 动画时长
+            onChange: function(event) {
+//                console.log(event); // 'open' or 'close'
+            }
+        });
+        $("#search").bigAutocomplete({
+            width:'88%',
+            data:data.country,
+            country:allCountry,
+            callback:function(data){
+                //console.log(data);
+                showAddrVal(data.name,data.code);
+            }
+        });
+    }
+    //删除地址选择
+    function removeAddrSelect(){
+        //saveAllDataJSONtoCache();
+      if($('.countrySelect').length > 0){
+        $('.countrySelect').animateCss('fadeOutLeft',function(){
+          $('.countrySelect').remove();
+        });
+      }
+    }
+    //加载地址选择
+    function loadAddrSelect(_this){
+        var ftype = _this.closest('.f_tab').eq(0).data('ftype');
+        var curAddr = '';
+        if(ftype != '3'){
+            curAddr = _this.hasClass('addr1')?'addr1':'addr2';
+        }else{
+            curAddr = [$('.pList .pItem').index(_this.closest('.pItem')),_this.hasClass('addr1')?'addr1':'addr2'];
+        }
+        currentAddrFillIn.ftype = ftype;
+        currentAddrFillIn.curAddr = curAddr;
+        //console.log(currentAddrFillIn);
+
+        if(currentAddrFillIn.ftype != '3'){
+            if(currentAddrFillIn.curAddr == 'addr2'){
+                if($('.f_tab[data-ftype='+currentAddrFillIn.ftype+'] .addr1 .tVal').val() == ''){
+                    return false;
+                }
+            }
+        }else{
+            if(currentAddrFillIn.curAddr[1] == 'addr2'){
+                if($('.f_tab[data-ftype='+currentAddrFillIn.ftype+'] .addr1 .tVal').eq(currentAddrFillIn.curAddr[0]).val() == ''){
+                    return false;
+                }
+            }
+            if(currentAddrFillIn.curAddr[0] == '1'){
+                if(currentAddrFillIn.curAddr[1] == 'addr1'){
+                    $('.f_tab[data-ftype=3] .addr2 .tVal').eq(0).trigger('click');
+                    return false;
+                }
+                var first = $('.f_tab[data-ftype='+currentAddrFillIn.ftype+'] .pList .pItem').eq(0);
+                //console.log(first);
+                var v1 = first.find('.addr1 .tVal').val();
+                var v2 = first.find('.addr2 .tVal').val();
+                //console.log(v1,v2);
+                if(v1 == '' || v2 == ''){
+                    return false;
+                }
+            }
+        }
+        showAddrSelect();
+    }
+    //显示地址选择
+    function showAddrSelect(){
+      removeAddrSelect();
+      createAddrSelect();
+      Q.go('address');
+    }
+    //地址按字母排序
+    function switchCase(n,code,name){
+        n = pinyinUtil.getFirstLetter(n, false);
+        switch(n){
+            case 'A':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'B':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'C':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'D':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'E':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'F':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'G':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'H':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'I':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'J':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'K':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'L':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'M':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'N':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'O':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'P':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'Q':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'R':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'S':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'T':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'U':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'V':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'W':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'X':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'Y':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            case 'Z':{
+                $('<p data-code="'+ code +'">'+ name +'</p>').appendTo($('#_'+ n +'_').parent());
+                break;
+            }
+            default:
+        }
+    }
+    //创建日期选择
+    function createDateSelect(obj){
+        $('.weui-toast.weui-toast--text.weui-toast--visible').remove();
+        $.toast("请选择出发日期", "text");
+        $('.weui-mask_transparent').remove();
+        //console.log(obj);
+        var dateArr = [];
+        var options = {
+            el: document.body,
+            travelType: obj.travelType,
+            // 开始月期（默认开始日期是从当前月开始）
+            //start: '2018-01-05',
+            start: obj.start?obj.start:undefined,//默认今天
+            // 结束月期（默认是显示3个月）
+            //end: '2018-03-05',
+            end: getDateStr(obj.maxDays - 1),//改成今天往后365天
+            // 当前选中的时间
+            //selectDate: { start: '2018-02-02', end: '2018-02-03' },
+            //selectDate: { start: '2018-02-02' },
+            selectDate: obj.selectDate,
+            // 最多能选择几天
+            maxDays: obj.maxDays,
+            data: calendarJSON.years[0].months, // current
+            years: calendarJSON.years,
+            // 超出日期的回调
+            maxCallback: function (startDate, endDate) { window.alert('超出选择范围，最多只能选择'+obj.maxDays+'天') },
+            // 去程点击回调
+            startCallback: function (date) {
+                // 时间格式化：yyyy年MM月dd日 hh:mm:ss
+                //const startDate = Calendar.format(date, 'yyyy年MM月dd日');
+                //console.log('去程时间：', startDate);
+                dateArr = [];
+                const sDate = Calendar.format(date, 'MM月dd日');
+                const tDate = Calendar.format(date, 'yyyy-MM-dd');
+                dateArr.push({'Date':date,'sDate':isNextYear(tDate)+sDate,'week':getWeek(tDate),'tDate':tDate});
+                $('.weui-toast.weui-toast--text.weui-toast--visible').remove();
+                $.toast("请选择返程日期", "text");
+                $('.weui-mask_transparent').remove();
+            },
+            // 返程点击回调
+            endCallback: function (date) {
+                //const endDate = Calendar.format(date, 'yyyy年MM月dd日');
+                //console.log('返程时间', endDate);
+                const sDate = Calendar.format(date, 'MM月dd日');
+                const tDate = Calendar.format(date, 'yyyy-MM-dd');
+                dateArr.push({'Date':date,'sDate':isNextYear(tDate)+sDate,'week':getWeek(tDate),'tDate':tDate});
+                //console.log(dateArr);
+                showDateVal(dateArr);
+                Q.go('home');
+            },
+            // 同日往返点击回调
+            rtCallback: function (date) {
+                //const rtDate = Calendar.format(date, 'yyyy年MM月dd日');
+                //console.log('同日往返时间', rtDate);
+                const sDate = Calendar.format(date, 'MM月dd日');
+                const tDate = Calendar.format(date, 'yyyy-MM-dd');
+                dateArr.push({'Date':date,'sDate':isNextYear(tDate)+sDate,'week':getWeek(tDate),'tDate':tDate});
+                //console.log(dateArr);
+                showDateVal(dateArr);
+                Q.go('home');
+            },
+            // 出发单程点击回调
+            setOutCallback: function (date) {
+                //const setOutDate = Calendar.format(date, 'yyyy年MM月dd日');
+                //console.log('出发单程时间', setOutDate);
+                const sDate = Calendar.format(date, 'MM月dd日');
+                const tDate = Calendar.format(date, 'yyyy-MM-dd');
+                dateArr = {'Date':date,'sDate':isNextYear(tDate)+sDate,'week':getWeek(tDate),'tDate':tDate};
+                //console.log(dateArr);
+                showDateVal(dateArr);
+                Q.go('home');
+            }
+        };
+        var calendar = new Calendar(options);
+        calendar.init();
+        $('.calendar-content').animateCss('fadeInLeft');
+    }
+    //删除日期选择
+    function removeDateSelect(){
+        //saveAllDataJSONtoCache();
+      if($('.calendar-content').length > 0){
+        $('.calendar-content').animateCss('fadeOutLeft',function(){
+          $('.calendar-content').remove();
+        });
+      }
+    }
+    //加载日期选择
+    function loadDateSelect(_this){
+        var ftype = _this.closest('.f_tab').eq(0).data('ftype');
+        var curDate = '';
+        var selectedDate = {};
+        options = {};
+        if(ftype == '1'){
+            curDate = 'tr';
+        }else if(ftype == '2'){
+            curDate = _this.hasClass('tl')?'tl':'tr';
+        }else if(ftype == '3'){
+            curDate = [$('.pList .pItem').index(_this.closest('.pItem')),_this.hasClass('tl')?'tl':'tr'];
+        }
+        currentDateFillIn.ftype = ftype;
+        currentDateFillIn.curDate = curDate;
+
+        //console.log(currentDateFillIn);
+
+        switch(ftype){
+            case 1:
+                var date = $('.f_tab[data-ftype=1]').find('.date .tDateVal').eq(0).val();
+                if(date){
+                    selectedDate.start = date;
+                }
+                options = {
+                    "ftype": ftype,
+                    "travelType": 2,
+                    "maxDays": 365,
+                    "selectDate": selectedDate
+                };
+                break;
+            case 2:
+                var date1 = $('.f_tab[data-ftype=2]').find('.date .tDateVal').eq(0).val();
+                var date2 = $('.f_tab[data-ftype=2]').find('.date .tDateVal').eq(1).val();
+                if(date1 && date2){
+                    selectedDate.start = date1;
+                    selectedDate.end = date2;
+                }
+                options = {
+                    "ftype": ftype,
+                    "travelType": 1,
+                    "maxDays": 365,
+                    "selectDate": selectedDate
+                };
+                break;
+            case 3:
+                var date = $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(curDate[0]).val();
+                if(date){
+                    selectedDate.start = date;
+                }
+                options = {
+                    "ftype": ftype,
+                    "travelType": 2,
+                    "maxDays": 365,
+                    "selectDate": selectedDate
+                };
+                break;
+        }
+        //console.log(options);
+        showDateSelect(options);
+    }
+    //显示日期选择
+    function showDateSelect(travelType){
+        removeDateSelect();
+        createDateSelect(travelType);
+        Q.go('calendar');
+    }
+    //获取相应日期字符串,第二个参数是增减天数
+    function getDateStr(AddDayCount,startTime=null) {
+        if(startTime==null){
+            startTime = new Date();
+        }else{
+            startTime = new Date(Date.parse(startTime.replace(/-/g,"/")));
+        }
+        //console.log(startTime);
+        startTime.setDate(startTime.getDate()+AddDayCount);//获取AddDayCount天后的日期
+        var y = startTime.getFullYear();
+        var m = (startTime.getMonth()+1)<10?"0"+(startTime.getMonth()+1):(startTime.getMonth()+1);//获取当前月份的日期，不足10补0
+        var d = startTime.getDate()<10?"0"+startTime.getDate():startTime.getDate();//获取当前几号，不足10补0
+        return y+"-"+m+"-"+d;
+    }
+    //获取星期几
+    function getWeek(dateString){
+        var date;
+        if(dateString == null || dateString == "" || typeof dateString == "undefined"){
+            //date = new Date();
+            return '';
+        }else{
+            var dateArray = dateString.split("-");
+            date = new Date(dateArray[0], parseInt(dateArray[1] - 1), dateArray[2]);
+        }
+        //var weeks = new Array("日", "一", "二", "三", "四", "五", "六");
+        //return "星期" + weeks[date.getDay()];
+
+        if(getDateStr(0) == dateString){
+            return '今天';
+        }else if(getDateStr(1) == dateString){
+            return '明天';
+        }else if(getDateStr(2) == dateString){
+            return '后天';
+        }else{
+            return "周" + "日一二三四五六".charAt(date.getDay());
+        }
+
+    }
+    //判断是否明年
+    function isNextYear(dateString){
+        var dateNow = new Date();
+        var yearNow = dateNow.getFullYear();
+
+        var date = new Date(dateString);
+        var year = date.getFullYear();
+        if(yearNow+1 == year){
+            return '明年';
+        }else{
+            return '';
+        }
+    }
+    //获取两个日期相差天数
+    function getDateDiff(startDate,endDate){
+        var startTime = new Date(Date.parse(startDate.replace(/-/g,"/"))).getTime();
+        var endTime = new Date(Date.parse(endDate.replace(/-/g,"/"))).getTime();
+        //var dates = Math.abs((startTime - endTime))/(1000*60*60*24); //返回绝对值
+        var dates = Math.ceil((endTime - startTime))/(1000*60*60*24);
+        return  dates;
+    }
+    //数字日期转汉字日期
+    function getSdate(date){
+        var arr = date.split('-');
+        return arr[1]+'月'+arr[2]+'日';
+    }
+    //显示日期的值
+    function showDateVal(DATA){
+        //console.log(DATA);
+        //console.log(currentDateFillIn);
+        var nowDateValArr = [];
+        nowDateValArr[0] = $('.f_tab[data-ftype=1] .date .tDateVal').val();
+        nowDateValArr[1] = [$('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(),$('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val()];
+        nowDateValArr[2] = [$('.f_tab[data-ftype=3] .date .tDateVal').eq(0).val(),$('.f_tab[data-ftype=3] .date .tDateVal').eq(1).val()];
+        //console.log(nowDateValArr);
+        switch(currentDateFillIn.ftype){
+            case 1:
+                //单程
+                $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._date').text(DATA.sDate);
+                $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._week').text(DATA.week);
+                $('.f_tab[data-ftype=1] .date .tDateVal').val(DATA.tDate);
+                //往返
+                $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._date').text(DATA.sDate);
+                $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._week').text(DATA.week);
+                $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(DATA.tDate);
+                //多城市
+                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(0).text(DATA.sDate);
+                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(0).text(DATA.week);
+                $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(0).val(DATA.tDate);
+
+                //往返和多城市的第2个日期
+                if(nowDateValArr[1][0] && nowDateValArr[1][1]){
+                    var diff1 = getDateDiff(nowDateValArr[1][0],nowDateValArr[1][1]);
+                    var diff2 = getDateDiff(DATA.tDate,nowDateValArr[1][1]);
+                    if(diff2 < 0){
+                        var tDate = getDateStr(diff1,DATA.tDate);
+                        //往返
+                        $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._date').text(isNextYear(tDate)+getSdate(tDate));
+                        $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._week').text(getWeek(tDate));
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(tDate);
+                        //多城市
+                        $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(1).text(isNextYear(tDate)+getSdate(tDate)+'('+getWeek(tDate)+')');
+                        $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(1).text(getWeek(tDate));
+                        $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(1).val(tDate);
+                    }
+                }
+                break;
+            case 2:
+                //单程
+                $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._date').text(DATA[0].sDate);
+                $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._week').text(DATA[0].week);
+                $('.f_tab[data-ftype=1] .date .tDateVal').val(DATA[0].tDate);
+
+                //往返
+                $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._date').text(DATA[0].sDate);
+                $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._week').text(DATA[0].week);
+                $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(DATA[0].tDate);
+                $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._date').text(DATA[1].sDate);
+                $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._week').text(DATA[1].week);
+                $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(DATA[1].tDate);
+
+                //多城市
+                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(0).text(DATA[0].sDate);
+                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(0).text(DATA[0].week);
+                $('.f_tab[data-ftype=3] .date .tDateVal').eq(0).val(DATA[0].tDate);
+                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(1).text(DATA[1].sDate);
+                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(1).text(DATA[1].week);
+                $('.f_tab[data-ftype=3] .date .tDateVal').eq(1).val(DATA[1].tDate);
+
+                break;
+            case 3:
+                //console.log(DATA);
+                switch(currentDateFillIn.curDate[0]){
+                    case 0:
+                        //单程
+                        $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._date').text(DATA.sDate);
+                        $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._week').text(DATA.week);
+                        $('.f_tab[data-ftype=1] .date .tDateVal').val(DATA.tDate);
+                        //往返
+                        $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._date').text(DATA.sDate);
+                        $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._week').text(DATA.week);
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(DATA.tDate);
+                        //多城市
+                        $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(0).text(DATA.sDate);
+                        $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(0).text(DATA.week);
+                        $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(0).val(DATA.tDate);
+
+                        //往返和多城市的第2个日期
+                        if(nowDateValArr[1][0] && nowDateValArr[1][1]){
+                            var diff1 = getDateDiff(nowDateValArr[1][0],nowDateValArr[1][1]);
+                            var diff2 = getDateDiff(DATA.tDate,nowDateValArr[1][1]);
+                            if(diff2 < 0){
+                                var tDate = getDateStr(diff1,DATA.tDate);
+                                //往返
+                                $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._date').text(isNextYear(tDate)+getSdate(tDate));
+                                $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._week').text(getWeek(tDate));
+                                $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(tDate);
+                                //多城市
+                                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(1).text(isNextYear(tDate)+getSdate(tDate));
+                                $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(1).text(getWeek(tDate));
+                                $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(1).val(tDate);
+                            }
+                        }
+                        break;
+                    case 1:
+                        //往返
+                        $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._date').text(DATA.sDate);
+                        $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._week').text(DATA.week);
+                        $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(DATA.tDate);
+                        //多城市
+                        $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(1).text(DATA.sDate);
+                        $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(1).text(DATA.week);
+                        $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(1).val(DATA.tDate);
+
+                        //往返和多城市的第2个日期
+                        if(nowDateValArr[2][0] && nowDateValArr[2][1]){
+                            var diff1 = getDateDiff(nowDateValArr[2][0],nowDateValArr[2][1]);
+                            var diff2 = getDateDiff(nowDateValArr[2][0],DATA.tDate);
+                            //console.log('diff1:'+diff1);
+                            //console.log('diff2:'+diff2);
+                            if(diff2 < 0){
+                                var tDate = getDateStr(-diff1,DATA.tDate);
+                                var today = getDateStr(0);
+                                if(getDateDiff(today,tDate) < 0){
+                                    //往返
+                                    $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._date').text(isNextYear(today)+getSdate(today));
+                                    $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._week').text(getWeek(today));
+                                    $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(today);
+                                    //多城市
+                                    $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(0).text(isNextYear(today)+getSdate(today));
+                                    $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(0).text(getWeek(today));
+                                    $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(0).val(today);
+                                }else{
+                                    $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(0).text(isNextYear(tDate)+getSdate(tDate));
+                                    $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(0).text(getWeek(tDate));
+                                    $('.f_tab[data-ftype=3]').find('.date .tDateVal').eq(0).val(tDate);
+                                }
+                            }
+                        }
+
+                        break;
+                }
+                break;
+        }
+        removeDateSelect();
+        saveAllDataJSONtoCache();
+    }
+    //显示地址的值
+    function showAddrVal(name,code){
+        if(currentAddrFillIn.ftype != '3'){
+            if(currentAddrFillIn.curAddr == 'addr1'){
+                $('.f_tab[data-ftype=1]').find('.addr2 .val').text('');
+                $('.f_tab[data-ftype=1]').find('.addr2 .tVal').val('');
+                $('.f_tab[data-ftype=2]').find('.addr2 .val').text('');
+                $('.f_tab[data-ftype=2]').find('.addr2 .tVal').val('');
+                $('.f_tab[data-ftype=3]').find('.addr2 .val').eq(0).text('');
+                $('.f_tab[data-ftype=3]').find('.addr2 .tVal').eq(0).val('');
+                $('.f_tab[data-ftype=3]').find('.addr1 .val').eq(1).text('');
+                $('.f_tab[data-ftype=3]').find('.addr1 .tVal').eq(1).val('');
+                $('.f_tab[data-ftype=3]').find('.addr2 .val').eq(1).text('');
+                $('.f_tab[data-ftype=3]').find('.addr2 .tVal').eq(1).val('');
+            }
+            $('.f_tab[data-ftype=1]').find('.'+currentAddrFillIn.curAddr+' .val').text(name);
+            $('.f_tab[data-ftype=1]').find('.'+currentAddrFillIn.curAddr+' .tVal').val(code);
+
+            $('.f_tab[data-ftype=2]').find('.'+currentAddrFillIn.curAddr+' .val').text(name);
+            $('.f_tab[data-ftype=2]').find('.'+currentAddrFillIn.curAddr+' .tVal').val(code);
+
+            $('.f_tab[data-ftype=3]').find('.'+currentAddrFillIn.curAddr+' .val').eq(0).text(name);
+            $('.f_tab[data-ftype=3]').find('.'+currentAddrFillIn.curAddr+' .tVal').eq(0).val(code);
+            if(currentAddrFillIn.curAddr == 'addr2'){
+                $('.f_tab[data-ftype=3]').find('.addr1 .val').eq(1).text(name);
+                $('.f_tab[data-ftype=3]').find('.addr1 .tVal').eq(1).val(code);
+            }
+        }else{
+            if(currentAddrFillIn.curAddr[1] == 'addr1'){
+                $('.f_tab[data-ftype=1]').find('.addr2 .val').text('');
+                $('.f_tab[data-ftype=1]').find('.addr2 .tVal').val('');
+                $('.f_tab[data-ftype=2]').find('.addr2 .val').text('');
+                $('.f_tab[data-ftype=2]').find('.addr2 .tVal').val('');
+                $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addrClick .val').text('');
+                $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addrClick .tVal').val('');
+            }
+            $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.'+currentAddrFillIn.curAddr[1]+' .val').eq(currentAddrFillIn.curAddr[0]).text(name);
+            $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.'+currentAddrFillIn.curAddr[1]+' .tVal').eq(currentAddrFillIn.curAddr[0]).val(code);
+            if(currentAddrFillIn.curAddr[0] == '0'){
+                $('.f_tab[data-ftype=1]').find('.'+currentAddrFillIn.curAddr[1]+' .val').text(name);
+                $('.f_tab[data-ftype=1]').find('.'+currentAddrFillIn.curAddr[1]+' .tVal').val(code);
+
+                $('.f_tab[data-ftype=2]').find('.'+currentAddrFillIn.curAddr[1]+' .val').text(name);
+                $('.f_tab[data-ftype=2]').find('.'+currentAddrFillIn.curAddr[1]+' .tVal').val(code);
+            }
+            //console.log(currentAddrFillIn.curAddr[0]);
+            if(currentAddrFillIn.curAddr[0] == '0'){
+                if(currentAddrFillIn.curAddr[1] == 'addr2'){
+                    $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addr1 .val').eq(1).text(name);
+                    $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addr1 .tVal').eq(1).val(code);
+                    $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addr2 .val').eq(1).text('');
+                    $('.f_tab[data-ftype='+currentAddrFillIn.ftype+']').find('.addr2 .tVal').eq(1).val('');
+                }
+            }
+        }
+
+        removeAddrSelect();
+        saveAllDataJSONtoCache();
+    }
+    //获取所有数据
+    function getAllData(){
+        var dataJSON = {
+            types:[
+                {
+                    type:1,
+                    addrs: [
+                        {
+                            aName:'addr1',
+                            sVal:$('.f_tab[data-ftype=1] .addr1 .val').text(),
+                            tVal:$('.f_tab[data-ftype=1] .addr1 .tVal').val(),
+                        },
+                        {
+                            aName:'addr2',
+                            sVal:$('.f_tab[data-ftype=1] .addr2 .val').text(),
+                            tVal:$('.f_tab[data-ftype=1] .addr2 .tVal').val(),
+                        },
+                    ],
+                    dates:[{
+                        dName:'date1',
+                        sVal:$('.f_tab[data-ftype=1] .date .dateVal ._date').text(),
+                        tVal:$('.f_tab[data-ftype=1] .date .tDateVal').val()
+                    }]
+                },
+                {
+                    type:2,
+                    addrs:[
+                        {
+                            aName:'addr1',
+                            sVal:$('.f_tab[data-ftype=2] .addr1 .val').text(),
+                            tVal:$('.f_tab[data-ftype=2] .addr1 .tVal').val(),
+                        },
+                        {
+                            aName:'addr2',
+                            sVal:$('.f_tab[data-ftype=2] .addr2 .val').text(),
+                            tVal:$('.f_tab[data-ftype=2] .addr2 .tVal').val(),
+                        }
+                    ],
+                    dates:[
+                        {
+                            dName:'date1',
+                            sVal:$('.f_tab[data-ftype=2] .date  .dateVal ._date').eq(0).text(),
+                            tVal:$('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val()
+                        },
+                        {
+                            dName:'date2',
+                            sVal:$('.f_tab[data-ftype=2] .date  .dateVal ._date').eq(1).text(),
+                            tVal:$('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val()
+                        }
+                    ]
+                },
+                {
+                    type:3,
+                    lines:[
+                        {
+                            line:'line1',
+                            addrs: [
+                                {
+                                    aName:'addr1',
+                                    sVal:$('.f_tab[data-ftype=3] .addr1 .val').eq(0).text(),
+                                    tVal:$('.f_tab[data-ftype=3] .addr1 .tVal').eq(0).val(),
+                                },
+                                {
+                                    aName:'addr2',
+                                    sVal:$('.f_tab[data-ftype=3] .addr2 .val').eq(0).text(),
+                                    tVal:$('.f_tab[data-ftype=3] .addr2 .tVal').eq(0).val(),
+                                }
+                            ],
+                            dates:[{
+                                dName:'date1',
+                                sVal:$('.f_tab[data-ftype=3] .date .dateVal ._date').eq(0).text(),
+                                tVal:$('.f_tab[data-ftype=3] .date .tDateVal').eq(0).val()
+                            }]
+                        },
+                        {
+                            line:'line2',
+                            addrs: [
+                                {
+                                    aName:'addr1',
+                                    sVal:$('.f_tab[data-ftype=3] .addr1 .val').eq(1).text(),
+                                    tVal:$('.f_tab[data-ftype=3] .addr1 .tVal').eq(1).val(),
+                                },
+                                {
+                                    aName:'addr2',
+                                    sVal:$('.f_tab[data-ftype=3] .addr2 .val').eq(1).text(),
+                                    tVal:$('.f_tab[data-ftype=3] .addr2 .tVal').eq(1).val(),
+                                }
+                            ],
+                            dates:[{
+                                dName:'date2',
+                                sVal:$('.f_tab[data-ftype=3] .date .dateVal ._date').eq(1).text(),
+                                tVal:$('.f_tab[data-ftype=3] .date .tDateVal').eq(1).val()
+                            }]
+                        }
+                    ]
+                }
+            ]
+        };
+        return dataJSON;
+    }
+    //获取乘客总人数
+    function getPeopleCount(){
+        var nums = $('.peopleEdit .weui-count__number');
+        var count = 0;
+        for(var i=0;i<nums.length;i++){
+            count += parseInt(nums.eq(i).val());
+        }
+        return count;
+    }
+    //返回所有乘客类型对应的人数
+    function getPeopleTypeAndCount(){
+        var adult = $('.peopleEdit .pType[data-ptype="adult"] .weui-count__number').val();
+        var child = $('.peopleEdit .pType[data-ptype="child"] .weui-count__number').val();
+        var baby = $('.peopleEdit .pType[data-ptype="baby"] .weui-count__number').val();
+        return {'adult':adult,'child':child,'baby':baby};
+    }
+    //保存所有数据到浏览器
+    function saveAllDataJSONtoCache(){
+        wsCache.set('AirBookingHistoryVal',getAllData());
+        //console.log(getAllData());
+    }
+    //获取URL参数的值
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+    //获取航班JSON
+    function getKuhangJSON(){
+        $.ajax({
+            url: './json/AirBooking.json?v=1',
+            type: 'get',
+            data: '',
+
+        })
+            .done(function(res){
+                AirBookingJSON = res;
+                //console.log(AirBookingJSON);
+                //生成热门城市
+                //暂时写死
+                AirBookingJSONloaded = true;
+            }).
+        fail(function(){
+            $.hideLoading();
+            $.alert('网络不给力，请尝试刷新页面。',function(){
+                location.reload();
+            })
+        }).
+        always(function(){
+            $.hideLoading();
+        })
+    }
+    //获取日历JSON
+    function getCalendarJSON(){
+        $.ajax({
+            url: './json/calendar.json?v=4',
+            type: 'get',
+            data: '',
+        })
+            .done(function(res){
+                calendarJSON = res;
+                //console.log(calendarJSON);
+                calendarJSONloaded = true;
+            }).
+        fail(function(){
+            $.hideLoading();
+            $.alert('网络不给力，请尝试刷新页面。',function(){
+                location.reload();
+            })
+        }).
+        always(function(){
+            $.hideLoading();
+        })
+    }
+    //url传参自动填充
+    function showUrlDefaultVal(){
+        //自动填充
+        var dpcity = GetQueryString('dpcity');
+        var dpcity_zh = decodeURIComponent(GetQueryString('dpcity_zh'));
+        var arcity = GetQueryString('arcity');
+        var arcity_zh = decodeURIComponent(GetQueryString('arcity_zh'));
+        var dpdate = GetQueryString('dpdate');
+        var type = GetQueryString('type');
+        console.log(dpcity_zh);
+        console.log(arcity_zh);
+        //$.showLoading('正在自动填充');
+        if(dpcity!='' && dpcity_zh!=''){
+          $('.f_tab[data-ftype=1] .addr1 .val').text(dpcity_zh+'('+dpcity+')');
+          $('.f_tab[data-ftype=1] .addr1 .tVal').val(dpcity);
+
+          $('.f_tab[data-ftype=2] .addr1 .val').text(dpcity_zh+'('+dpcity+')');
+          $('.f_tab[data-ftype=2] .addr1 .tVal').val(dpcity);
+
+          $('.f_tab[data-ftype=3] .addr1 .val').eq(0).text(dpcity_zh+'('+dpcity+')');
+          $('.f_tab[data-ftype=3] .addr1 .tVal').eq(0).val(dpcity);
+        }
+        if(arcity!='' && arcity_zh!=''){
+          $('.f_tab[data-ftype=1] .addr2 .val').text(arcity_zh+'('+arcity+')');
+          $('.f_tab[data-ftype=1] .addr2 .tVal').val(arcity);
+
+          $('.f_tab[data-ftype=2] .addr2 .val').text(arcity_zh+'('+arcity+')');
+          $('.f_tab[data-ftype=2] .addr2 .tVal').val(arcity);
+
+
+          $('.f_tab[data-ftype=3] .addr2 .val').eq(0).text(arcity_zh+'('+arcity+')');
+          $('.f_tab[data-ftype=3] .addr2 .tVal').eq(0).val(arcity);
+          $('.f_tab[data-ftype=3] .addr1 .val').eq(1).text(arcity_zh+'('+arcity+')');
+          $('.f_tab[data-ftype=3] .addr1 .tVal').eq(1).val(arcity);
+          $('.f_tab[data-ftype=3] .addr2 .val').eq(1).text('');
+          $('.f_tab[data-ftype=3] .addr2 .tVal').eq(1).val('');
+        }
+        if(dpdate!=''){
+          //单程
+          $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._date').text(isNextYear(dpdate)+getSdate(dpdate));
+          $('.f_tab[data-ftype=1]').find('.date .dateClick .dateVal ._week').text(getWeek(dpdate));
+          $('.f_tab[data-ftype=1] .date .tDateVal').val(dpdate);
+          //往返
+          $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._date').text(isNextYear(dpdate)+getSdate(dpdate));
+          $('.f_tab[data-ftype=2]').find('.date .dateClick.tl .dateVal ._week').text(getWeek(dpdate));
+          $('.f_tab[data-ftype=2] .date .tDateVal').eq(0).val(dpdate);
+          $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._date').text(isNextYear(dpdate)+getSdate(dpdate));
+          $('.f_tab[data-ftype=2]').find('.date .dateClick.tr .dateVal ._week').text(getWeek(dpdate));
+          $('.f_tab[data-ftype=2] .date .tDateVal').eq(1).val(dpdate);
+          //多城市
+          $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(0).text(isNextYear(dpdate)+getSdate(dpdate));
+          $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(0).text(getWeek(dpdate));
+          $('.f_tab[data-ftype=3] .date .tDateVal').eq(0).val(dpdate);
+          $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._date').eq(1).text(isNextYear(dpdate)+getSdate(dpdate));
+          $('.f_tab[data-ftype=3]').find('.date .dateClick .dateVal ._week').eq(1).text(getWeek(dpdate));
+          $('.f_tab[data-ftype=3] .date .tDateVal').eq(1).val(dpdate);
+        }
+        if(type!=''){
+          $('.index_tab.weui-tab .weui-navbar .weui-navbar__item[data-navtype="'+type+'"]').addClass('weui-bar__item--on').siblings().removeClass('weui-bar__item--on');
+          $('.weui-tab__bd .f_tab.weui-tab__bd-item[data-ftype="'+type+'"]').addClass('weui-tab__bd-item--active').siblings().removeClass('weui-tab__bd-item--active');
+        }
+        //$.hideLoading();
+    }
+    //获取定位
+    function getLocation(){
+      var options={
+        enableHighAccuracy:true,
+        maximumAge:1000,
+        timeout:2000
+      }
+      if(navigator.geolocation){
+        //浏览器支持geolocation
+        navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+      }else{
+        //浏览器不支持geolocation
+        //$.alert('您的浏览器不支持地理位置定位');
+        useRandomCity();
+      }
+    }
+    //成功时
+    function onSuccess(position){
+      //返回用户位置
+      //经度
+      var longitude = position.coords.longitude;
+      //纬度
+      var latitude = position.coords.latitude;
+      //$.alert('经度'+longitude+'，纬度'+latitude);
+      var locationData = {"longitude":longitude,"latitude":latitude};
+      console.log('经度'+longitude+', 纬度'+latitude);
+
+      $.showLoading('正在获取地址');
+      $.ajax({
+        url: 'http://location',
+        type: 'get',
+        data: locationData,
+        dataType: 'json'
+      })
+      .done(function(res){
+            if(res == 0){
+              //console.log(data);
+              locationAddr = {
+                'city': res.city.name+'('+res.city.code+')',
+                'cityCode': res.city.code
+              };
+              locationAddrLoaded = true;
+            }else{
+              useRandomCity();
+            }
+        }).
+      fail(function(){
+        useRandomCity();
+        $.hideLoading();
+      }).
+      always(function(){
+        $.hideLoading();
+      })
+    }
+    //失败时
+    function onError(error){
+      useRandomCity();
+      switch(error.code){
+        case 1:
+          //$.alert("位置服务被拒绝");
+          console.log("位置服务被拒绝");
+          break;
+        case 2:
+          //$.alert("暂时获取不到位置信息");
+          console.log("暂时获取不到位置信息");
+          break;
+        case 3:
+          //$.alert("获取信息超时");
+          console.log("获取信息超时");
+          break;
+        case 4:
+          //$.alert("未知错误");
+          console.log("未知错误");
+          break;
+      }
+    }
+    //使用随机城市
+    function useRandomCity(){
+      var random = randomCity[Math.floor(Math.random()*randomCity.length)]
+      locationAddr = {
+        'city': random.name+'('+random.code+')',
+        'cityCode': random.code
+      };
+      locationAddrLoaded = true;
+    }
+</script>
+</html>
