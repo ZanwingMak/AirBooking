@@ -2156,12 +2156,14 @@
       var locationData = {"longitude":longitude,"latitude":latitude};
       console.log('经度'+longitude+', 纬度'+latitude);
 
-      $.showLoading('正在获取地址');
       $.ajax({
         url: 'http://location',
         type: 'get',
         data: locationData,
-        dataType: 'json'
+        dataType: 'json',
+        beforeSend:function(){
+          $.showLoading('正在获取地址');
+        }
       })
       .done(function(res){
             if(res == 0){
